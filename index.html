@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Skills Knowledge Level</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #3498db; /* Updated background color */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff; /* Updated text color */
+        }
+
+        #knowledgeForm {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: #3498db; /* Use the same color as background for contrast */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        #logo {
+            max-width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        #rangeValue {
+            color: #3498db; /* Use the same color as the background for contrast */
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #2ecc71; /* Updated button color */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #27ae60; /* Darker color on hover */
+        }
+    </style>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div id="knowledgeForm">
+        <h1><img src="logo.png" alt="Logo" id="logo"> DevOps Skills Level</h1> <!-- Updated placement of the logo -->
+        <form>
+            <label for="git">Git:</label>
+            <input type="range" id="git" name="git" min="0" max="2" step="1" onchange="updateValue('git')">
+            <div id="gitValue">Beginner</div>
+            <button type="button" onclick="openLink('git')">Improve Your Knowledge</button><br>
+
+            <label for="docker">Docker:</label>
+            <input type="range" id="docker" name="docker" min="0" max="2" step="1" onchange="updateValue('docker')">
+            <div id="dockerValue">Beginner</div>
+            <button type="button" onclick="openLink('docker')">Improve Your Knowledge</button><br>
+
+            <label for="jenkins">Jenkins:</label>
+            <input type="range" id="jenkins" name="jenkins" min="0" max="2" step="1" onchange="updateValue('jenkins')">
+            <div id="jenkinsValue">Beginner</div>
+            <button type="button" onclick="openLink('jenkins')">Improve Your Knowledge</button><br>
+
+            <button type="button" onclick="testKnowledge()">Test Your Knowledge</button>
+        </form>
+    </div>
+
+    <script>
+        function updateValue(skill) {
+            var rangeInput = document.getElementById(skill);
+            var valueDisplay = document.getElementById(skill + 'Value');
+            var value = rangeInput.value;
+
+            switch (value) {
+                case '0':
+                    valueDisplay.innerText = 'Beginner';
+                    break;
+                case '1':
+                    valueDisplay.innerText = 'Intermediate';
+                    break;
+                case '2':
+                    valueDisplay.innerText = 'Advanced';
+                    break;
+                default:
+                    valueDisplay.innerText = '';
+            }
+        }
+
+        function openLink(skill) {
+            var skillLevel = document.getElementById(skill).value;
+            // Replace 'YOUR_GOOGLE_LINK' with the actual link based on knowledge levels
+            var link = 'https://www.google.com/search?q=devops+' + skill + '+' + skillLevel;
+            window.open(link, '_blank');
+        }
+
+        function testKnowledge() {
+            // Replace 'YOUR_TEST_LINK' with the link for testing knowledge
+            var testLink = 'https://www.example.com/test';
+            window.open(testLink, '_blank');
+        }
+    </script>
+</body>
+
+</html>
