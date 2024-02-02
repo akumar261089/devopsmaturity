@@ -60,15 +60,11 @@
             font-size: 16px;
         }
 
-        #rangeValue {
+        .knowledge-value {
+            display: inline-block;
+            margin-left: 10px;
             color: #3498db; /* Use the same color as the background for contrast */
             font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        #summary {
-            color: #555;
-            margin-bottom: 20px;
         }
 
         button {
@@ -92,19 +88,17 @@
 <body>
     <div id="knowledgeForm">
         <h1><img src="logo.png" alt="Logo" id="logo"> DevOps Skills Knowledge Level</h1> <!-- Updated placement of the logo -->
-        <div id="summary">Selected Knowledge Levels:</div>
         <form>
-            <label for="git">Git:</label> <div id="gitValue">Beginner</div>
-
+            <label for="git">Git:<span id="gitValue" class="knowledge-value"><a href="https://www.example.com/docker">Beginner</a></span></label>
             <input type="range" id="git" name="git" min="0" max="2" step="1" onchange="updateValue('git')">
            
-            <label for="docker">Docker:</label><div id="dockerValue">Beginner</div> 
-            <input type="range" id="docker" name="docker" min="0" max="2" step="1" onchange="updateValue('docker')">
-            
 
-            <label for="jenkins">Jenkins:</label>
+            <label for="docker">Docker:<span id="dockerValue" class="knowledge-value"><a href="https://www.example.com/docker">Beginner</a></span></label>
+            <input type="range" id="docker" name="docker" min="0" max="2" step="1" onchange="updateValue('docker')">
+
+            <label for="jenkins">Jenkins:<span id="jenkinsValue" class="knowledge-value"><a href="https://www.example.com/docker">Beginner</a></span></label>
             <input type="range" id="jenkins" name="jenkins" min="0" max="2" step="1" onchange="updateValue('jenkins')">
-            <div id="jenkinsValue">Beginner</div>
+            
 
             <button type="button" onclick="testKnowledge()">Test Your Knowledge</button>
         </form>
@@ -129,13 +123,6 @@
                 default:
                     valueDisplay.innerText = '';
             }
-
-            // Update the summary
-            var summary = document.getElementById('summary');
-            summary.innerText = 'Selected Knowledge Levels: ' +
-                'Git - ' + document.getElementById('gitValue').innerText + ', ' +
-                'Docker - ' + document.getElementById('dockerValue').innerText + ', ' +
-                'Jenkins - ' + document.getElementById('jenkinsValue').innerText;
         }
 
         function testKnowledge() {
